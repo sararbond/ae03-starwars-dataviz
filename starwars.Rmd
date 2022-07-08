@@ -42,9 +42,10 @@ ggplot(starwars,
 
 (A little bit of starter code is provided below, and the code chunk is set to not be evaluated with `eval = FALSE` because the current code in there is not valid code and hence the document wouldn't knit. Once you replace the code with valid code, set the chunk option to `eval = TRUE`, or remove the `eval` option altogether since it's set to `TRUE` by default.)
 
-```{r barplot, eval = FALSE}
-ggplot(starwars, aes(___)) +
-  geom___
+```{r barplot, eval = TRUE}
+ggplot(starwars, aes(x = sex, 
+                     fill = gender))+
+  geom_bar()
 ```
 
 ### Pick a single numerical variable and make a histogram of it.
@@ -52,23 +53,33 @@ ggplot(starwars, aes(___)) +
 (This time no starter code is provided, you're on your own!)
 
 ```{r histogram}
+ggplot(starwars, aes(x = height))+
+  geom_histogram(binwidth = 40)
+```    
+       
 
 ```
 
 ### Pick a numerical variable and a categorical variable and make a visualisation (you pick the type!) to visualise the relationship between the two variables. Along with your code and output, provide an interpretation of the visualisation.
 
 ```{r num-cat}
-
+ggplot(starwars, aes(x = height, 
+                       fill = hair_color)) +
+  geom_bar()
 ```
 
 ### Pick two categorical variables and make a visualisation to visualise the relationship between the two variables. Along with your code and output, provide an interpretation of the visualisation.
 
 ```{r cat-cat}
-
+ggplot(starwars, aes(x = hair_color,
+                            fill = gender)) +
+  geom_bar()
 ```
 
 ### Pick two numerical variables and two categorical variables and make a visualisation that incorportes all of them and provide an interpretation with your answer.
 
 ```{r multi}
-
+ggplot(starwars, aes(x = mass, y = height, fill = gender)) +
+ geom_point()
+ facet_grid(. ~ mass)
 ```
